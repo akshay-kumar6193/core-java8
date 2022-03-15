@@ -34,7 +34,18 @@ public class BasicLambdaExpression {
 		// using comparator with lambda expression
 		Comparator<Employee> byNameLambda = (e1, e2) -> e1.getName().compareTo(e2.getName());
 
-		Collections.sort(empList, byNameLambda);
+//		Collections.sort(empList, byNameLambda);
+//		System.out.println(empList);
+
+		// using method reference
+		Comparator<Employee> compareByName = Comparator.comparing(Employee::getName);
+		Comparator<Employee> reverseCompareByName = Comparator.comparing(Employee::getName).reversed();
+
+		Collections.sort(empList, compareByName);
+
+		System.out.println(empList);
+		Collections.sort(empList, reverseCompareByName);
+
 		System.out.println(empList);
 
 		// using compact runnable object
