@@ -39,6 +39,11 @@ public class BasicLambdaExpression {
 
 		// using method reference
 		Comparator<Employee> compareByName = Comparator.comparing(Employee::getName);
+		Comparator<Employee> compareByNameUsingLambda = Comparator.comparing(Employee::getName,
+				(e1, e2) -> e1.compareTo(e2));
+		
+		
+		
 		Comparator<Employee> reverseCompareByName = Comparator.comparing(Employee::getName).reversed();
 
 		Collections.sort(empList, compareByName);
