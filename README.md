@@ -1,6 +1,6 @@
 # core-java8
 
-baisc of lambda function
+basic of lambda function
 functional interface
 Streams API
 Parallelism using parallel function
