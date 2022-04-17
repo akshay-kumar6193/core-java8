@@ -45,6 +45,18 @@ public class CollectingStream2 {
 		 
 		System.out.println(prepareTemperature().stream().
 				collect(Collectors.groupingBy(City::getName, Collectors.groupingBy(City::getTemperature))));
+		
+		System.out.println(prepareTemperature().stream().collect(Collectors.groupingBy
+				(City::getName,Collectors.mapping(City::getTemperature,Collectors.toList()))));
+	
+		 Map<Boolean, List<City>> out=prepareTemperature().stream().collect(Collectors.partitioningBy(x->x.getTemperature()>15));
+		 
+		 Map<Boolean, Set<City>> out1=prepareTemperature().stream().collect(Collectors.partitioningBy(x->x.getTemperature()>15
+				 ,Collectors.toSet()));
+			Stream.of(out,out1).forEach(System.out::println);
+			
+	
+	
 	}
 	
 
